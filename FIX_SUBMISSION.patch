@@ -1,0 +1,16 @@
+```javascript
+// Ensure Wyre API is loaded before attempting to access its properties
+if (typeof Wyre === 'object' && Wyre !== null) {
+  // Access the Widget property
+  const widget = Wyre.Widget;
+} else {
+  // Load the Wyre API script if it hasn't been loaded yet
+  const script = document.createElement('script');
+  script.src = 'https://api.wyre.com/js/v2/widget.js';
+  document.body.appendChild(script);
+  script.onload = function() {
+    // Access the Widget property after the script has loaded
+    const widget = Wyre.Widget;
+  };
+}
+```
